@@ -5,18 +5,31 @@ var Router = require('falcor-router');
 var express = require('express');
 var app = express();
 
-app.use('/model.json', falcorExpress.dataSourceRoute(function (req, res) {
-  // create a Virtual JSON resource with single key ("greeting")
-  return new Router([
-    {
-      // match a request for the key "greeting"
-      route: "greeting",
-      // respond with a PathValue with the value of "Hello World."
-      get: function() {
-        return {path:["greeting"], value: "Hellos World"};
-      }
-    }
-  ]);
+app.use('/model.json', falcorExpress.dataSourceRoute(function(req, res) {
+    // create a Virtual JSON resource with single key ("greeting")
+    return new Router([{
+        // match a request for the key "greeting"
+        route: "alpha",
+        // respond with a PathValue with the value of "Hello World."
+        get: function() {
+            return {
+                path: ["alpha"],
+                value: "Hellos World"
+            };
+        }
+    }]);
+}));
+
+app.use('/crazy.json', falcorExpress.dataSourceRoute(function(req, res) {
+    return new Router([{
+        route: "mix",
+        get: function() {
+            return {
+              path: ["love"],
+              value: "hate"
+            };
+        }
+    }]);
 }));
 
 // serve static files from current directory

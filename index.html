@@ -8,10 +8,17 @@
 
       // retrieve the "greeting" key from the root of the Virtual JSON resource
       model.
-        get("greeting").
+        get("alpha").
         then(function(response) {
-          document.write(response.json.greeting);
+          console.log(response.json);
         });
+
+      // var model2 = new falcor.Model({source: new falcor.HttpDataSource('/crazy.json') });
+      // model2.
+      //   get("mix").
+      //   then(function(response) {
+      //     console.log(response.json.love);
+      //   });
     </script>
   </head>
   <body>
