@@ -11,6 +11,7 @@
   "dependencies": {
     "falcor-router": "~0.2.9",
     "express": "~4.13.3",
-    "falcor-express": "~0.1.2"
+    "falcor-express": "~0.1.2",
+    "request": "~2.65.0"
   }
 }

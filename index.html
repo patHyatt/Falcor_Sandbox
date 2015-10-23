@@ -4,21 +4,13 @@
     <!-- Do _not_  rely on this URL in production. Use only during development.  -->
     <script src="https://netflix.github.io/falcor/build/falcor.browser.js"></script>
     <script>
-      var model = new falcor.Model({source: new falcor.HttpDataSource('/model.json') });
-
-      // retrieve the "greeting" key from the root of the Virtual JSON resource
-      model.
-        get("alpha").
+      var model2 = new falcor.Model({source: new falcor.HttpDataSource('/crazy.json') });
+      model2.
+        get("tagsByIndex[1..2]"). //play with this number, i.e. 0-2, 0-100, 3..4
         then(function(response) {
-          console.log(response.json);
-        });
-
-      // var model2 = new falcor.Model({source: new falcor.HttpDataSource('/crazy.json') });
-      // model2.
-      //   get("mix").
-      //   then(function(response) {
-      //     console.log(response.json.love);
-      //   });
+          console.log(response.json.tagsByIndex);
+        }).
+        catch(function(err){console.error("Oh noes", err);});
     </script>
   </head>
   <body>
